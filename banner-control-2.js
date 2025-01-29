@@ -1,4 +1,4 @@
-var websitePrivacyPage = "";
+var websitePrivacyPage = "https://www.metricsrealm.com/privacy-policy/";
 var unknownCookieText = ["Unknown", "This cookie information is unknown"];
 
 var categoryText = ["Necessary", "Preferences", "Statistics", "Marketing", "Unclassified"];
@@ -7,8 +7,8 @@ var learnMoreText = "Learn more about the provider";
 
 var topSectionText = ["Consent", "Details", "About"];
 
-var firstSectionText = "Vi bruger cookies til at personalisere indhold og annoncer, tilvejebringe funktioner til sociale medier og analysere vores trafik. Vi deler også oplysninger om din brug af vores hjemmeside med vores partnere inden for sociale medier, annoncering og analyse, som kan kombinere dem med andre oplysninger, du har givet dem, eller som de har indsamlet fra din brug af deres tjenester.";
-var thirdSectionText = "Cookies er små tekstfiler, der bruges af hjemmesider til at forbedre brugeroplevelsen. Loven siger, at vi kan gemme cookies på din enhed, hvis de er strengt nødvendige for driften af denne hjemmeside. For alle andre typer cookies har vi brug for din tilladelse. Dette betyder, at cookies klassificeret som nødvendige håndteres i henhold til artikel 6, stk. 1, litra f, i GDPR. Alle andre cookies, såsom dem i kategorierne Præferencer og Markedsføring, håndteres i henhold til artikel 6, stk. 1, litra a, i GDPR. Denne hjemmeside bruger forskellige typer cookies. Nogle cookies sættes af tredjepartstjenester, der vises på vores sider.";
+var firstSectionText = "We use cookies to personalize content and ads, provide social media features, and analyze our traffic. We also share information about your use of our website with our social media, advertising, and analytics partners, who may combine it with other information you have provided to them or that they have collected from your use of their services.";
+var thirdSectionText = "Cookies are small text files that are used by websites to improve the user experience. The law states that we can store cookies on your device if they are strictly necessary for the operation of this website. For all other types of cookies, we need your permission. This means that cookies classified as necessary are managed according to Article 6(1)(f) of the GDPR. All other cookies, such as those in the Preferences and Marketing categories, are managed according to Article 6(1)(a) of the GDPR. This website uses different types of cookies. Some cookies are set by third-party services that appear on our pages.";
 
 var bannerButtonsTexts = ["Accept", "Decline", "Customize", "Save"];
 
@@ -34,9 +34,9 @@ var cookieInfoText = ["Expiration", "Domain", "Controller"];
 
 var bannerShowingDelayed = 0;
 
+var websiteLogo = "https://cdn.prod.website-files.com/601987b8e4fc3d2bd8810278/601995093c81388e4d7de4d1_Saint%20Lavie%20Logo.svg";
 
-
-var logoWidth = "200px";
+var logoWidth = "50px";
 
 var darkModeEnable = true;
 
@@ -44,17 +44,17 @@ var darkModeDefault = localStorage.getItem("viewMode") ? localStorage.getItem("v
 
 var showIconOfModes = true;
 
-var secondBannerEnable = true;
+var secondBannerEnable = false;
 var defaultConsent = false;
 
 var onClickAccept = "granted";
 var onClickCustom = "normal";
-var onClickDeclined = "denied";
+var onClickDeclined = "granted";
 
 var onClickAcceptSecond = "granted";
 var onClickDeclinedSecond = "denied";
 
-var secondBannerShowingTime = 20;
+var secondBannerShowingTime = 10;
 
 var storeQuery = true;
 var addBackToUrl = true;
@@ -72,36 +72,36 @@ function gtag() {
 var consentValue = ["granted", "denied"];
 
 var consent = {
-    ad_storage: defaultConsent ? "granted" : 'denied',
-    ad_user_data: defaultConsent ? "granted" : 'denied',
-    ad_personalization: defaultConsent ? "granted" : 'denied',
-    analytics_storage: defaultConsent ? "granted" : 'denied',
-    functionality_storage: defaultConsent ? "granted" : 'denied',
-    personalization_storage: defaultConsent ? "granted" : 'denied',
-    unclassified_storage: defaultConsent ? "granted" : 'denied',
-    security_storage: defaultConsent ? "granted" : 'granted'  // New security_storage field
+	ad_storage: defaultConsent ? "granted" : 'denied',
+	ad_user_data: defaultConsent ? "granted" : 'denied',
+	ad_personalization: defaultConsent ? "granted" : 'denied',
+	analytics_storage: defaultConsent ? "granted" : 'denied',
+	functionality_storage: defaultConsent ? "granted" : 'denied',
+	personalization_storage: defaultConsent ? "granted" : 'denied',
+	unclassified_storage: defaultConsent ? "granted" : 'denied',
+	security_storage: defaultConsent ? "granted" : 'granted'  // New security_storage field
 }
 
 var acceptConsent = {
-    ad_storage: 'granted',
-    ad_user_data: 'granted',
-    ad_personalization: 'granted',
-    analytics_storage: 'granted',
-    functionality_storage: 'granted',
-    personalization_storage: 'granted',
-    unclassified_storage: 'granted',
-    security_storage: 'granted'  // New security_storage field
+	ad_storage: 'granted',
+	ad_user_data: 'granted',
+	ad_personalization: 'granted',
+	analytics_storage: 'granted',
+	functionality_storage: 'granted',
+	personalization_storage: 'granted',
+	unclassified_storage: 'granted',
+	security_storage: 'granted'  // New security_storage field
 }
 
 var declinedConsent = {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
-    functionality_storage: 'denied',
-    personalization_storage: 'denied',
-    unclassified_storage: 'denied',
-    security_storage: 'granted'  // New security_storage field
+	ad_storage: 'denied',
+	ad_user_data: 'denied',
+	ad_personalization: 'denied',
+	analytics_storage: 'denied',
+	functionality_storage: 'denied',
+	personalization_storage: 'denied',
+	unclassified_storage: 'denied',
+	security_storage: 'granted'  // New security_storage field
 }
 
 gtag('consent', 'default', consent);
@@ -113,7 +113,7 @@ function pushDataLayer(consent, event) {
 	window.dataLayer.push({
 		event: event,
 		consent: consent,
-		setupBy: "ROI ONLINE APS"
+		setupBy: "https://www.fiverr.com/analyticsbyte"
 	})
 }
 
@@ -846,59 +846,33 @@ window.addEventListener("load", function() {
 
 					addLoaderAndBlur();
 
+					Object.keys(checkedCategories).forEach((inputCategory, index) => {
+						var convert = bannerCheckBox[index].checked ? "granted" : "denied";
+						checkedCategories[inputCategory] = convert;
+					})
+
+					localStorage.setItem("bannerChoice", JSON.stringify(checkedCategories));
+
+					consent.ad_storage = checkedCategories.Marketing;
+					consent.ad_user_data = checkedCategories.Marketing;
+					consent.ad_personalization = checkedCategories.Marketing;
+					consent.analytics_storage = checkedCategories.Statistics;
+					consent.personalization_storage = checkedCategories.Preferences;
+					consent.functionality_storage = checkedCategories.Preferences;
+					consent.unclassified_storage = consent.Unclassified;
 
 					if (onClickCustom == "normal") {
-
 						addStoredParamsToURL();
-
-                        consent.ad_storage = checkedCategories.Marketing;
-                        consent.ad_user_data = checkedCategories.Marketing;
-                        consent.ad_personalization = checkedCategories.Marketing;
-                        consent.analytics_storage = checkedCategories.Statistics;
-                        consent.personalization_storage = checkedCategories.Preferences;
-                        consent.functionality_storage = checkedCategories.Preferences;
-                        consent.unclassified_storage = consent.Unclassified;
-
-                        Object.keys(checkedCategories).forEach((inputCategory, index) => {
-                            var convert = bannerCheckBox[index].checked ? "granted" : "denied";
-                            checkedCategories[inputCategory] = convert;
-                        })
-    
-
 						gtag('consent', 'update', consent);
 						pushDataLayer(consent, "consent_update")
 					} else if (onClickCustom == "granted") {
 						addStoredParamsToURL();
-
-                        Object.keys(consent).forEach(function(element) {
-                            consent[element] = consentValue[0]
-                        });
-    
-                        Object.keys(checkedCategories).forEach(function(element) {
-                            checkedCategories[element] = consentValue[0]
-                        });
-
-
 						gtag('consent', 'update', acceptConsent);
 						pushDataLayer(acceptConsent, "consent_update")
-
 					} else if (onClickCustom == "denied") {
-
-                        Object.keys(consent).forEach(function(element) {
-                            consent[element] = consentValue[1]
-                        });
-    
-                        Object.keys(checkedCategories).forEach(function(element) {
-                            checkedCategories[element] = consentValue[1]
-                        });
-
-
 						gtag('consent', 'update', declinedConsent);
 						pushDataLayer(declinedConsent, "consent_update")
 					}
-
-                    localStorage.setItem("bannerChoice", JSON.stringify(checkedCategories));
-
 
 					setTimeout(function() {
 						removeLoaderAndBlur();
@@ -911,42 +885,30 @@ window.addEventListener("load", function() {
 
 					addLoaderAndBlur();
 
+					Object.keys(consent).forEach(function(element) {
+						consent[element] = consentValue[0]
+					});
+
+					Object.keys(checkedCategories).forEach(function(element) {
+						checkedCategories[element] = consentValue[0]
+					});
+
 					bannerCheckBox.forEach((input, inputIndex) => {
 						if (inputIndex != 0) {
 							input.checked = true;
 						}
 					})
 
-                
+					localStorage.setItem("bannerChoice", JSON.stringify(checkedCategories));
+
 					if (onClickAccept == "granted") {
-
 						addStoredParamsToURL();
-                        Object.keys(consent).forEach(function(element) {
-                            consent[element] = consentValue[0]
-                        });
-    
-                        Object.keys(checkedCategories).forEach(function(element) {
-                            checkedCategories[element] = consentValue[0]
-                        });
-
 						gtag('consent', 'update', consent);
 						pushDataLayer(consent, "consent_update");
 					} else if (onClickAccept == "denied") {
-
-                        Object.keys(consent).forEach(function(element) {
-                            consent[element] = consentValue[1]
-                        });
-    
-                        Object.keys(checkedCategories).forEach(function(element) {
-                            checkedCategories[element] = consentValue[1]
-                        });
-
 						gtag('consent', 'update', declinedConsent);
 						pushDataLayer(declinedConsent, "consent_update");
 					}
-
-                    localStorage.setItem("bannerChoice", JSON.stringify(checkedCategories));
-
 
 					setTimeout(function() {
 						removeLoaderAndBlur()
@@ -959,44 +921,31 @@ window.addEventListener("load", function() {
 
 					addLoaderAndBlur()
 
+					Object.keys(consent).forEach(function(element) {
+						consent[element] = consentValue[1]
+					})
+
+					Object.keys(checkedCategories).forEach(function(element) {
+						checkedCategories[element] = consentValue[1]
+					});
+
 					bannerCheckBox.forEach((input, inputIndex) => {
 						if (inputIndex != 0) {
 							input.checked = false;
 						}
 					})
 
- 
-                    if (onClickDeclined == "denied") {
+					localStorage.setItem("bannerChoice", JSON.stringify(checkedCategories));
 
+					if (onClickDeclined == "denied") {
 						gtag('consent', 'update', consent);
 						pushDataLayer(consent, "consent_update");
-
-                        Object.keys(consent).forEach(function(element) {
-                            consent[element] = consentValue[1]
-                        })
-    
-                        Object.keys(checkedCategories).forEach(function(element) {
-                            checkedCategories[element] = consentValue[1]
-                        });
-
 					} else if (onClickDeclined == "granted") {
-
 						addStoredParamsToURL();
-                        
-                        Object.keys(consent).forEach(function(element) {
-                            consent[element] = consentValue[0]
-                        })
-    
-                        Object.keys(checkedCategories).forEach(function(element) {
-                            checkedCategories[element] = consentValue[0]
-                        });
-
 						gtag('consent', 'update', acceptConsent);
 						pushDataLayer(acceptConsent, "consent_update");
 
 					}
-
-                    localStorage.setItem("bannerChoice", JSON.stringify(checkedCategories));
 
 					choiceMade();
 
@@ -1051,7 +1000,7 @@ window.addEventListener("load", function() {
 			function showSecondBanner() {
 				var secondBannerElement = `
                 <div class="doubleCheckPopUp">
-                    <h1 class="cookieHeadline">Vi har bemærket, at du har afvist at acceptere brugen af cookies. Selvom vi respekterer din beslutning, skal du være opmærksom på, at det at afvise cookies kan påvirke din browseroplevelse. Nogle funktioner på hjemmesiden, som personligt tilpasset indhold og visse funktionaliteter, virker muligvis ikke som tiltænkt. For at sikre, at du får den bedste oplevelse, anbefaler vi, at du genovervejer din beslutning. Hvis du ombestemmer dig, kan du altid justere dine præferencer i indstillingerne eller acceptere cookies ved at acceptere banneret igen.</h1>
+                    <h1 class="cookieHeadline">We noticed that you've declined to accept the use of cookies. While we respect your decision, please note that declining cookies may impact your browsing experience. Some website features, such as personalized content and certain functionalities, may not work as intended. To ensure you get the best experience, we recommend reviewing your decision. If you change your mind, you can always adjust your preferences in the settings or consent to cookies by accepting the banner again.</h1>
                     <div class="secondBannerBtnWrapper">
                         <button class="secondBannerBtn secondBannerAccept active">Accept</button>
                         <button class="secondBannerBtn secondBannerDeclined declined">Decline</button>
@@ -1074,34 +1023,13 @@ window.addEventListener("load", function() {
 				document.querySelector(".secondBannerAccept").onclick = function() {
 					secondBanner.style.display = "none";
 					if (onClickAcceptSecond == "denied") {
-                        
-                        Object.keys(consent).forEach(function(element) {
-                            consent[element] = consentValue[1]
-                        })
-    
-                        Object.keys(checkedCategories).forEach(function(element) {
-                            checkedCategories[element] = consentValue[1]
-                        });
-
 						gtag('consent', 'update', declinedConsent);
 						pushDataLayer(declinedConsent, "consent_update");
 					} else if (onClickAcceptSecond == "granted") {
 						addStoredParamsToURL();
-
-                        Object.keys(consent).forEach(function(element) {
-                            consent[element] = consentValue[0]
-                        })
-    
-                        Object.keys(checkedCategories).forEach(function(element) {
-                            checkedCategories[element] = consentValue[0]
-                        });
-
 						gtag('consent', 'update', acceptConsent);
 						pushDataLayer(acceptConsent, "consent_update");
 					}
-
-                    localStorage.setItem("bannerChoice", JSON.stringify(checkedCategories));
-					
 
 					secondBanner.style.display = "none";
 					miniIcon.style.display = "flex";
@@ -1113,34 +1041,13 @@ window.addEventListener("load", function() {
 
 				document.querySelector(".secondBannerDeclined").onclick = function() {
 					if (onClickDeclinedSecond == "denied") {
-                        
-                        Object.keys(consent).forEach(function(element) {
-                            consent[element] = consentValue[1]
-                        })
-    
-                        Object.keys(checkedCategories).forEach(function(element) {
-                            checkedCategories[element] = consentValue[1]
-                        });
-
 						gtag('consent', 'update', declinedConsent);
 						pushDataLayer(declinedConsent, "consent_update");
 					} else if (onClickDeclinedSecond == "granted") {
-
 						addStoredParamsToURL();
-                        
-                        Object.keys(consent).forEach(function(element) {
-                            consent[element] = consentValue[0]
-                        })
-    
-                        Object.keys(checkedCategories).forEach(function(element) {
-                            checkedCategories[element] = consentValue[0]
-                        });
-
 						gtag('consent', 'update', acceptConsent);
 						pushDataLayer(acceptConsent, "consent_update");
 					}
-
-                    localStorage.setItem("bannerChoice", JSON.stringify(checkedCategories));
 
 					secondBanner.style.display = "none";
 					miniIcon.style.display = "flex";
